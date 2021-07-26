@@ -6,7 +6,7 @@ import os
 
 def get_news(query, language, category, country, sort_by):
     OWM_Endpoint = "https://newsapi.org/v2/top-headlines?"
-    api_key=os.environ.get("api_key") or current_app.config['API_KEY']
+    api_key=os.environ.get("API_KEY") or current_app.config['API_KEY']
     params = {
         'q':query,
         # 'sources':'bbc-news,the-verge',
