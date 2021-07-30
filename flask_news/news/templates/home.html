@@ -1,3 +1,4 @@
+{% from "_render_field.html" import render_field %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -43,79 +44,15 @@
                     <h3 class="mb-5">Search News</h3>
                     
                     {{ form.hidden_tag() }}
-                    {{ form.query.label(class="form-control-label") }}
-
-                        {% if form.query.errors %}
-                            {{ form.query(class="form-control form-control-lg is-invalid") }}
-                            <div class="invalid-feedback">
-                                {% for error in form.query.errors %}
-                                    <span>{{ error }}</span>
-                                {% endfor %}
-                            </div>
-                        {% else %}
-                            {{ form.query(class="form-control form-control-lg") }}
-                        {% endif %}
-                    <br>
+            
+                    {{ render_field(form.query) }}
+                    {{ render_field(form.language) }}
+                    {{ render_field(form.category) }}
+                    {{ render_field(form.country) }}
+                    {{ render_field(form.sort_by) }}
                     
-                        {{ form.language.label(class="form-control-label") }}
-
-                        {% if form.language.errors %}
-                            {{ form.language(class="form-control form-control-lg is-invalid") }}
-                            <div class="invalid-feedback">
-                                {% for error in form.language.errors %}
-                                    <span>{{ error }}</span>
-                                {% endfor %}
-                            </div>
-                        {% else %}
-                            {{ form.language(class="form-control form-control-lg") }}
-                        {% endif %}
-                    
-
-                    <br>
-                    
-                        {{ form.category.label(class="form-control-label") }}
-
-                        {% if form.category.errors %}
-                            {{ form.category(class="form-control form-control-lg is-invalid") }}
-                            <div class="invalid-feedback">
-                                {% for error in form.category.errors %}
-                                    <span>{{ error }}</span>
-                                {% endfor %}
-                            </div>
-                        {% else %}
-                            {{ form.category(class="form-control form-control-lg") }}
-                        {% endif %}
-                    
-                    <br>
-                
-                        {{ form.country.label(class="form-control-label") }}
-
-                        {% if form.country.errors %}
-                            {{ form.country(class="form-control form-control-lg is-invalid") }}
-                            <div class="invalid-feedback">
-                                {% for error in form.country.errors %}
-                                    <span>{{ error }}</span>
-                                {% endfor %}
-                            </div>
-                        {% else %}
-                            {{ form.country(class="form-control form-control-lg") }}
-                        {% endif %}
-                    <br>
-                    
-                        {{ form.sort_by.label(class="form-control-label") }}
-
-                        {% if form.sort_by.errors %}
-                            {{ form.sort_by(class="form-control form-control-lg is-invalid") }}
-                            <div class="invalid-feedback">
-                                {% for error in form.sort_by.errors %}
-                                    <span>{{ error }}</span>
-                                {% endfor %}
-                            </div>
-                        {% else %}
-                            {{ form.sort_by(class="form-control form-control-lg") }}
-                        {% endif %}
                         <br>
-                        <div class="form-group">
+                    <div class="form-group">
                     {{ form.submit(class="btn btn-outline-secondary") }}
                     </div>
                 
